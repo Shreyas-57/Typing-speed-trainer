@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PulseType Trainer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <main class="app-shell">
+    <section class="hero-card">
+      <div class="hero-copy">
+        <p class="eyebrow">Typing Speed Trainer</p>
+        <h1>Train faster. Miss less. See your weak keys.</h1>
+        <p class="subcopy">
+          A smarter typing practice app with live feedback, custom drills, dark mode, and progress tracking.
+        </p>
+      </div>
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">
+        <span class="theme-toggle__icon" aria-hidden="true">D</span>
+        <span>Switch to light</span>
+      </button>
+    </section>
+
+    <section class="control-grid">
+      <div class="panel">
+        <div class="panel-heading">
+          <h2>Practice Setup</h2>
+          <p>Pick your timer and training mode.</p>
+        </div>
+        <div class="control-group">
+          <span class="label">Timer</span>
+          <div class="chip-row" id="timerOptions">
+            <button class="chip active" data-time="30" type="button">30s</button>
+            <button class="chip" data-time="60" type="button">60s</button>
+            <button class="chip" data-time="120" type="button">120s</button>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="label" for="practiceMode">Practice Mode</label>
+          <select id="practiceMode" class="select-control">
+            <option value="paragraph">Random paragraph</option>
+            <option value="weak">Weak keys drill</option>
+            <option value="numbers">Numbers</option>
+            <option value="symbols">Symbols</option>
+            <option value="code">Coding snippets</option>
+          </select>
+        </div>
+        <div class="control-actions">
+          <button id="newTextBtn" class="secondary-btn" type="button">New Text</button>
+          <button id="restartBtn" class="primary-btn" type="button">Restart</button>
+        </div>
+      </div>
+
+      <div class="panel stats-panel">
+        <div class="panel-heading">
+          <h2>Live Stats</h2>
+          <p>Updates while you type.</p>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card">
+            <span class="stat-label">Time Left</span>
+            <strong id="timeLeft">30</strong>
+          </article>
+          <article class="stat-card">
+            <span class="stat-label">WPM</span>
+            <strong id="wpm">0</strong>
+          </article>
+          <article class="stat-card">
+            <span class="stat-label">Accuracy</span>
+            <strong id="accuracy">100%</strong>
+          </article>
+          <article class="stat-card">
+            <span class="stat-label">Mistakes</span>
+            <strong id="mistakes">0</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="trainer-grid">
+      <div class="panel typing-panel">
+        <div class="panel-heading">
+          <h2>Typing Arena</h2>
+          <p>Green is correct, red is wrong, and the glow marks your current letter.</p>
+        </div>
+        <div id="textDisplay" class="text-display" aria-live="polite"></div>
+        <textarea
+          id="typingInput"
+          class="typing-input"
+          rows="6"
+          spellcheck="false"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          placeholder="Start typing here to begin the timer..."
+        ></textarea>
+      </div>
+
+      <aside class="side-stack">
+        <div class="panel">
+          <div class="panel-heading">
+            <h2>Weak Keys</h2>
+            <p>Your most common misses show up here.</p>
+          </div>
+          <ul id="weakKeysList" class="insight-list">
+            <li>No weak keys yet. Finish a round to analyze them.</li>
+          </ul>
+        </div>
+
+        <div class="panel">
+          <div class="panel-heading">
+            <h2>History</h2>
+            <p>Your recent sessions are saved locally.</p>
+          </div>
+          <ul id="historyList" class="history-list">
+            <li>No sessions saved yet.</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
