@@ -13,4 +13,4 @@ PulseType Trainer is a stylish typing speed practice app built with plain HTML, 
 - Dark mode
 - Local history saved in the browser
 
-# https://shreyas-57.github.io/Typing-speed-trainer/
+## https://shreyas-57.github.io/Typing-speed-trainer/
